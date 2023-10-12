@@ -1,0 +1,46 @@
+<div class="container mt-5">
+
+  <br> 
+  <div class="text-center">
+    <h5>All Shows Available for movie</h5>
+    <br><br>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Venue Image</th>
+        <th>Movie Poster</th>
+        <th>Venue</th>
+        <th>Movie</th>
+        <th>Showtime</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shows.each do |show| %>
+        <tr>
+          <td>
+            <% if show.venue.image.attached? %>
+              <%= image_tag show.venue.image, width: 300, height: 200 %>
+            <% else %>
+              No Image Available
+            <% end %>
+          </td>
+          <td>
+            <% if show.movie.image.attached? %>
+              <%= image_tag show.movie.image, width: 300, height: 200 %>
+            <% else %>
+              No Image Available
+            <% end %>
+          </td>
+          <td><%= show.venue.name %></td>
+          <td><%= show.movie.title %></td>
+          <td><%= show.showtime_at %></td>
+          <td>
+            <%= link_to "Book Seat", seats_path, class: "btn btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
