@@ -45,6 +45,13 @@ return bestSeats;
 document.getElementById('findBestSeatButton').addEventListener('click', () => {
 const numSeats = parseInt(document.getElementById("numSeats").value, 10);
 
+    seats.forEach((seat) => {
+        if (seat.classList.contains('selected')) {
+        seat.classList.remove('selected');
+        seat.classList.add('available');
+        }
+    });
+
     if (numSeats > 0) {
     const bestSeats = findBestSeatsFarAndMostCenter(numSeats);
 

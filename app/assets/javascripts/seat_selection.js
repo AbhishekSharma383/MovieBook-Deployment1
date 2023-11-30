@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     if (seat.classList.contains('selected')) {
         seat.classList.remove('selected');
+        seat.classList.add('available');
     } else {
         seat.classList.add('selected');
     }
